@@ -18,15 +18,18 @@
   align-items: flex-end;
 }
 
-.pixel {
+#pixel {
   display: flex;
   flex-wrap: wrap;
   flex-direction:row;;
   height: 10px;
   width: 10px;
-  background-color: white;
   border: 1px solid lightgray;
   z-index: 99;
+}
+
+.pixel {
+  background-color: white;
 }
 
 #color-container{

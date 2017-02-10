@@ -2,14 +2,12 @@
 var windowWidth = parseInt(document.documentElement.clientWidth);
 var windowHeight = parseInt(document.documentElement.clientHeight);
 
-console.log("Window Height: " + windowHeight);
-console.log("Window Width: " + windowWidth);
-
 function canvasSize(pixelWidthCount) {
   for (var i=0; i<pixelWidthCount; i++) {
     var div = document.createElement("div");
     var pixelContainer = document.getElementById("pixel-container");
     pixelContainer.appendChild(div);
+    div.id = "pixel";
     div.className = "pixel";
   }
 }
@@ -36,60 +34,19 @@ canvasSize(pixels);
 
 var currentColor;
 var colorContainer = document.getElementById('color-container');
+var pixelContainer = document.getElementById('pixel-container');
 var colorBox = document.getElementById('color-box');
+
 colorContainer.addEventListener("click", function(event) {
-  currentColor = event.target.className;
-  colorBox.className = currentColor;
-  event.target.className = currentColor;
+  if (event.target.className !== "color-container") {
+    currentColor = event.target.className;
+    colorBox.className = currentColor;
+    event.target.className = currentColor;
+  }
 });
 
-// document.body.addEventListener("click", function colorSelect() {
-//   let currentColor = this.style.backgroundColor;
-//   let colorBox = document.getElementById("color-box");
-//   colorBox.style.backgroundColor = currentColor;
-//   console.log(currentColor);
-// }, false);
-
-// var colorContainer = document.getElementById("color-container");
-// var selectedColor;
-
-// var color = document.getElementsByClassName("color");
-//
-// function colorChanger(event) {
-//   color.onclick = console.log("you clicked");
-// };
-
-// colorContainer.addEventListener("click", function () {
-  // console.log(event.target.style.backgroundColor);
-// })
-
-
-// var getColor = function (element) {
-//   console.log(element.style.backgroundColor);
-// };
-
-// colorContainer.addEventListener("click", function () {
-//   // let green = document.querySelector("#dark-green");
-//   let savedColor = event.target.style.backgroundColor;
-//   // let newColor = document.getElementById("color-box");
-//   colorContainer.style.backgroundColor = savedColor;
-//   console.log("something is happening, just not what I want");
-// });
-
-// function colorSelect(color) {
-//     if (color.target !== color.currentTarget) {
-//         var clickedItem = color.style.backgroundColor;
-//         console.log("You selected the ", clickedItem, " color.");
-//     }
-//     color.stopPropagation();
-// }
-
-
-
-// var colors = document.getElementsByClassName("color");
-
-// colorContainer.addEventListener("click", function () {
-//   // let pink = document.getElementById("pink");
-//   // let currentColor = pink.style.backgroundColor;
-//   // console.log("You selected the ", currentColor, " color.");
-// }, false);
+pixelContainer.addEventListener("click", function(event) {
+  currentColor = "white";
+  currentColor = colorBox.className;
+  event.target.className = currentColor.slice(6);
+})
