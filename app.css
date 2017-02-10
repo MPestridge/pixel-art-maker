@@ -1,8 +1,8 @@
 #body-background {
-  display:flex;
+  display:block;
+  justify-content: center;
+  align-items: center;
   background-color: lightgray;
-  height: 600px;
-  width: 795px;
   border-radius: 15px;
   z-index: 100;
   padding: 20px;
@@ -10,8 +10,6 @@
 }
 
 #pixel-container {
-  height: 500px;
-  width: 800px;
   z-index: 99;
   display: flex;
   flex-wrap: wrap;
@@ -32,14 +30,17 @@
 }
 
 #color-container{
-  height: 90px;
-  width: 790px;
+  /*height: 90px;
+  width: 790px;*/
   margin: 20px 0 20px 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   z-index: 99;
   order: 2;
+  background-color: lightgray;
+  border-radius: 15px;
+  flex-grow: 1
 }
 
 .color {
@@ -186,11 +187,37 @@
   margin-left: 10px;
 }
 
-.color-box {
+#color-box {
   width: 80px;
   height: 40px;
-  background-color: white;
   border: 1px solid black;
   margin-left: 10px;
+  margin-top: 0;
   border-radius: 10px;
+}
+
+.color-box {
+  background-color: white;
+}
+
+#color-text {
+  padding-top: 1.5px;
+}
+
+@media screen and (min-width: 320px) {
+  #body-background {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #body-background {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #body-background {
+    width: 1200px;
+  }
 }
