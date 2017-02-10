@@ -46,7 +46,8 @@ colorContainer.addEventListener("click", function(event) {
 });
 
 pixelContainer.addEventListener("click", function(event) {
-  currentColor = "white";
-  currentColor = colorBox.className;
-  event.target.className = currentColor.slice(6);
+  if (currentColor !== undefined) {
+    currentColor = colorBox.className;
+    event.target.className = currentColor.slice(6);
+  }
 })
